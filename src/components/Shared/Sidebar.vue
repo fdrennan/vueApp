@@ -1,14 +1,15 @@
 <template>
   <div id="mySidebar" 
-       v-bind:style="{left: sidebarLeft}"
+        v-bind:style="{left: sidebarLeft, backgroundColor: backgroundColor}"
        class="sidebar">
-    <ul id="sidebar-ul">
+    <ul id="sidebar-ul"
+       >
 
       <li class="sidebar-li">
         <button type="submit" 
                 id="sidebar-submit"
                 v-on:click="updateClick"
-                v-bind:style="{ backgroundColor: backgroundColor}">
+                v-bind:style="{ backgroundColor: clickColor}">
                     Click Me</button>
         </li>
 
@@ -30,20 +31,21 @@ export default {
   data() {
     return {
       msg: "Welcome!",
-      backgroundColor:  "rgb(86, 188, 235, 1)",
+      backgroundColor:  "rgb(28, 28, 28, .5)",
       sidebarLeft: 50 + "px",
-      activeSidebar: true
+      activeSidebar: true,
+      clickColor: "rgb(28, 28, 28, .5)"
     };
   },
   methods: {
     updateClick () {
         this.activeSidebar = !this.activeSidebar;
         if(this.activeSidebar) {
-            this.backgroundColor = "rgb(86, 188, 235, 1)";
+            this.backgroundColor = "rgb(28, 28, 28, .5)";
             this.sidebarLeft = 50 + "px";
         } else {
-            this.backgroundColor = "rgb(86, 188, 235, 0)";
-            this.sidebarLeft = -230 + "px"
+            this.backgroundColor = "rgb(28, 28, 28, 0)";
+            this.sidebarLeft = -250 + "px"
         }
     }
   }
@@ -51,6 +53,9 @@ export default {
 </script>
 
 <style>
+body {
+    background-color: rgb(28, 28, 28, .1);
+}
 #sidebar-submit {
   right: 0;
 }
@@ -63,7 +68,6 @@ export default {
   z-index: 1; /* Stay on top */
   bottom: 100px;
   left: 10%;
-  background-color: rgb(86, 188, 235, 0.3); /* Black*/
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
@@ -90,7 +94,6 @@ export default {
 .sidebar-li {
     list-style: none;
     padding: 0;
-    background-color: black;
     text-align: center;
 }
 
