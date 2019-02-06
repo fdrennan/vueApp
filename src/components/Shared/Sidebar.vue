@@ -1,12 +1,14 @@
 <template>
-  <div id="mySidebar" class="sidebar">
+  <div id="mySidebar" 
+       v-bind:style="{left: sidebarLeft}"
+       class="sidebar">
     <ul id="sidebar-ul">
 
       <li class="sidebar-li">
         <button type="submit" 
                 id="sidebar-submit"
                 v-on:click="updateClick"
-                v-bind:style="{ fontSize: fontSize + 'px' }">
+                v-bind:style="{ backgroundColor: backgroundColor}">
                     Click Me</button>
         </li>
 
@@ -28,13 +30,21 @@ export default {
   data() {
     return {
       msg: "Welcome!",
-      fontSize: 10
+      backgroundColor:  "rgb(86, 188, 235, 1)",
+      sidebarLeft: 50 + "px",
+      activeSidebar: true
     };
   },
   methods: {
     updateClick () {
-        this.fontSize = this.fontSize + 1;
-        console.log(this.fontSize)
+        this.activeSidebar = !this.activeSidebar;
+        if(this.activeSidebar) {
+            this.backgroundColor = "rgb(86, 188, 235, 1)";
+            this.sidebarLeft = 50 + "px";
+        } else {
+            this.backgroundColor = "rgb(86, 188, 235, 0)";
+            this.sidebarLeft = -230 + "px"
+        }
     }
   }
 };
@@ -81,6 +91,7 @@ export default {
     list-style: none;
     padding: 0;
     background-color: black;
+    text-align: center;
 }
 
 #sidebar-submit {
