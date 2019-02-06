@@ -18,8 +18,21 @@
         </li>
 
       <li class="sidebar-li">
-        <a href="#">Services</a>
+            <input class="sidebar-date" type="date" name="bday" max="1979-12-31">
+            <input class="sidebar-date" type="date" name="bday" min="2000-01-02">
         </li>
+  
+      <li  id="sidebar-datasets" >
+         <select v-model="selected">
+                  <option disabled value="">Please select one</option>
+                  <option>Iris</option>
+                  <option>mtcars</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+      </li>
+       
+        
+        
 
     </ul>
   </div>
@@ -34,7 +47,8 @@ export default {
       backgroundColor:  "rgb(28, 28, 28, .5)",
       sidebarLeft: 50 + "px",
       activeSidebar: true,
-      clickColor: "rgb(28, 28, 28, .5)"
+      clickColor: "rgb(28, 28, 28, .5)",
+      selected: ""
     };
   },
   methods: {
@@ -53,9 +67,7 @@ export default {
 </script>
 
 <style>
-body {
-    background-color: rgb(28, 28, 28, .1);
-}
+
 #sidebar-submit {
   right: 0;
 }
@@ -85,6 +97,8 @@ body {
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
   color: #f1f1f1;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
 }
 
 #sidebar-ul {
@@ -94,7 +108,7 @@ body {
 
 .sidebar-li {
     list-style: none;
-    padding: 0;
+    padding: 3px;
     text-align: center;
 }
 
@@ -103,4 +117,15 @@ body {
     text-align: right;
     color: white;
 }
+
+.sidebar-date {
+    font-size: 10px;
+    width: 100px;
+    display: inline-block;
+}
+
+#sidebar-datasets {
+    text-align: center;
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class='div2'>
+  <div>
     <div class="navbar">
       <a href="http://drenr.com">Home</a>
       <a href="#news">News</a>
