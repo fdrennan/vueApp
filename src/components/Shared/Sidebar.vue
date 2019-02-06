@@ -10,7 +10,7 @@
                 id="sidebar-submit"
                 v-on:click="updateClick"
                 v-bind:style="{ backgroundColor: clickColor}">
-                    Click Me</button>
+                    <font-awesome-icon icon="bars" /></button>
         </li>
 
       <li class="sidebar-li">
@@ -45,7 +45,7 @@ export default {
             this.sidebarLeft = 50 + "px";
         } else {
             this.backgroundColor = "rgb(28, 28, 28, 0)";
-            this.sidebarLeft = -250 + "px"
+            this.sidebarLeft = -274 + "px"
         }
     }
   }
@@ -79,6 +79,7 @@ body {
   color: #818181;
   display: block;
   transition: 0.3s;
+  color: white;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -99,5 +100,7 @@ body {
 
 #sidebar-submit {
     width: 100%;
+    text-align: right;
+    color: white;
 }
 </style>
